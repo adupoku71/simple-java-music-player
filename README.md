@@ -9,7 +9,7 @@ A straightforward, console-based audio player written in Java. This project was 
 
 - **Efficient Streaming:** It streams `.wav` files smoothly instead of loading the whole track into memory at once.
 - **Automatic Clean-up:** Uses Java's `try-with-resources` to make sure system files and tools close automatically when you quit, preventing memory leaks.
-- **Error Handling:** Covers common audio issues cleanly—if a file is missing or formatted wrong, the app tells you exactly what happened instead of crashing.
+- **Error Handling:** Covers common audio issues cleanly. If a file is missing or formatted wrong, the app tells you exactly what happened instead of crashing.
 
 ---
 
@@ -20,8 +20,11 @@ simple-java-music-player/
 ├── src/
 │   └── main/
 │       ├── java/
-│       │   └── com/david/musicplayer/
-│       │       └── Main.java             # The core player code
+│       │   └── com/musicplayer/
+│       │       └── AudioPlayer.java  
+        |       └── ConsoleMenu.java 
+        |       └── Main.java   
+        |
 │       └── resources/     
 │       │   └── audio/         
 │       │       └── sample.wav            # The music track
@@ -73,7 +76,7 @@ mvn clean compile
 
 4. Run the player:
 ```bash
-mvn exec:java -Dexec.mainClass="com.david.musicplayer.Main"
+mvn exec:java -Dexec.mainClass="com.musicplayer.Main"
 ```
 ---
 
