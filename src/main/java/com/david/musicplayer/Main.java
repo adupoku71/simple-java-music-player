@@ -4,7 +4,6 @@ package com.david.musicplayer;
 import javax.sound.sampled.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +11,7 @@ public class Main {
         String filePath = "/audio/sample.wav";
         AudioPlayer player = new AudioPlayer();
 
-        try(Scanner scanner = new Scanner(System.in)) {
+        try {
             player.load(filePath);
             System.out.println("file was located");
 
