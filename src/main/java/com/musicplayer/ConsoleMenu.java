@@ -1,4 +1,4 @@
-package com.david.musicplayer;
+package com.musicplayer;
 
 import java.util.Scanner;
 
