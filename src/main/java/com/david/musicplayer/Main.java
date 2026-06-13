@@ -9,31 +9,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        String filePath = "/audio/on-the-ground-by-kevin-macleod.wav";
+        String filePath = "/audio/sample.wav";
         AudioPlayer player = new AudioPlayer();
 
         try(Scanner scanner = new Scanner(System.in)) {
             player.load(filePath);
             System.out.println("file was located");
-            String response = "";
 
-            while(!response.equals("Q")) {
-                System.out.println("P = Play");
-                System.out.println("S = Stop");
-                System.out.println("R = Reset");
-                System.out.println("Q = Quit");
-                System.out.print("Enter your choice: ");
-                response = scanner.next().toUpperCase();
-
-                switch (response) {
-                    case "P" -> player.play();
-                    case "S" -> player.stop();
-                    case "R" -> player.reset();
-                    case "Q" -> player.close();
-                    default -> System.out.println("Invalid choice");
-                }
-            }
-
+            ConsoleMenu menu = new ConsoleMenu(player);
+            menu.startPlayer();
 
         }
         catch (FileNotFoundException e) {
