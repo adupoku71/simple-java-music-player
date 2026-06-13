@@ -79,6 +79,6 @@ mvn exec:java -Dexec.mainClass="com.david.musicplayer.Main"
 
 ## 🛠️ Future Roadmap
 
-* [ ] **Phase 2 (Clean OOP Structure):** Split the code into different files (an `AudioPlayer` engine and a separate `ConsoleMenu` interface) to make it cleaner.
+* [x] **Phase 2 (Clean OOP Structure):** Split the code into different files (an `AudioPlayer` engine and a separate `ConsoleMenu` interface) to make it cleaner.
 * [ ] **Phase 3 (MP3 Support):** Add external Java libraries to support playing compressed `.mp3` files.
 * [ ] **Phase 4 (Playlists):** Add logic to store multiple songs and skip between tracks.
