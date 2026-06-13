@@ -2,7 +2,6 @@ package com.david.musicplayer;
 
 
 import javax.sound.sampled.*;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
@@ -10,15 +9,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        String filePath = "src/main/resources/audio/on-the-ground-by-kevin-macleod.wav";
-        File file = new File(filePath);
+        String filePath = "/audio/on-the-ground-by-kevin-macleod.wav";
+        AudioPlayer player = new AudioPlayer();
 
-        try(Scanner scanner = new Scanner(System.in);AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file)) {
-
-
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-
+        try(Scanner scanner = new Scanner(System.in)) {
+            player.load(filePath);
+            System.out.println("file was located");
             String response = "";
 
             while(!response.equals("Q")) {
@@ -30,10 +26,10 @@ public class Main {
                 response = scanner.next().toUpperCase();
 
                 switch (response) {
-                    case "P" -> clip.start();
-                    case "S" -> clip.stop();
-                    case "R" -> clip.setMicrosecondPosition(0);
-                    case "Q" -> clip.close();
+                    case "P" -> player.play();
+                    case "S" -> player.stop();
+                    case "R" -> player.reset();
+                    case "Q" -> player.close();
                     default -> System.out.println("Invalid choice");
                 }
             }
@@ -53,7 +49,7 @@ public class Main {
             System.out.println("Something went wrong");
         }
         finally {
-            System.out.println("Bye");
+            System.out.println("Thank you for using the player. Bye!!!");
         }
     }
 }
